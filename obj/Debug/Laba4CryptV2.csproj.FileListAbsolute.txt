@@ -1,0 +1,11 @@
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\bin\Debug\Laba4CryptV2.exe.config
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\bin\Debug\Laba4CryptV2.exe
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\bin\Debug\Laba4CryptV2.pdb
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.csproj.AssemblyReference.cache
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.csproj.SuggestedBindingRedirects.cache
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.Form1.resources
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.Properties.Resources.resources
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.csproj.GenerateResource.cache
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.csproj.CoreCompileInputs.cache
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.exe
+C:\Users\ADIN\source\repos\Laba4CryptV2\Laba4CryptV2\obj\Debug\Laba4CryptV2.pdb
