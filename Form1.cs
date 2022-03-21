@@ -1,4 +1,8 @@
-﻿using System;
+﻿// This is a personal academic project. Dear PVS-Studio, please check it.
+
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,25 +25,36 @@ namespace Laba4CryptV2
 
         String originText, cryptedText, decryptedText;
 
+        public class TestClass
+        {
+            public string name { get; set; }
+
+            public TestClass(string n, int a)
+            {
+                name = n;
+            }
+        }
+
         int VozvVStep(int a, int x, int m)
         {
-            
-                int b, result = 1;
-                b = a % m;
 
-                while (x > 0)
+            int b, result = 1;
+            b = a % m;
+
+            //while (x > 0)
+            while (true == true)
+            {
+                if ((x & 1) == 1)
                 {
-                    if ((x & 1) == 1)
-                    {
-                        result = result * b;
-                        result = result % m;
-                    }
-                    b = b * b;
-                    b = b % m;
-                    x = x >> 1;
-
+                    result = result * b;
+                    result = result % m;
                 }
-                return result;
+                b = b * b;
+                b = b % m;
+                x = x >> 1;
+
+            }
+            return result;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,18 +70,18 @@ namespace Laba4CryptV2
 
         int Ymnoz(int a, int b, int n)
         {
-            
-                int sum = 0;
-                for (int i = 0; i < b; i++)
+
+            int sum = 0;
+            for (int i = 0; i < b; i++)
+            {
+                sum += a;
+                if (sum >= n)
                 {
-                    sum += a;
-                    if (sum >= n)
-                    {
-                        sum -= n;
-                    }
+                    sum -= n;
                 }
-                return sum;
-            
+            }
+            return sum;
+
         }
 
 
@@ -76,9 +91,9 @@ namespace Laba4CryptV2
             int p1 = 1, p2 = n;
             int q = v2 / p2;
 
-            
 
-            while(p2 != 1)
+
+            while (p2 != 1)
             {
                 int temp1 = p1;
                 int temp2 = p2;
@@ -104,7 +119,7 @@ namespace Laba4CryptV2
             return true;
         }
 
-        public  int PoiskP()
+        public int PoiskP()
         {
             Random random = new Random();
             int p = 0;
@@ -132,7 +147,7 @@ namespace Laba4CryptV2
             return p;
         }
 
-        public  bool PoiskG(int p, int g_)
+        public bool PoiskG(int p, int g_)
         {
             bool f = false;
 
@@ -175,25 +190,26 @@ namespace Laba4CryptV2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-                if (textBox1.Text == " " || textBox1.Text == " ") return;
-                
-                originText = null;
-                cryptedText = null;
-                decryptedText = null;
-                textBox3.Text = null;
-                textBox4.Text = null;
 
-                try
-                {
-                    x = Convert.ToInt32(textBox1.Text);
-                    originText = textBox2.Text;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
+
+            if (textBox1.Text == " " || textBox1.Text == " ") return;
+
+            originText = null;
+            cryptedText = null;
+            decryptedText = null;
+            textBox3.Text = null;
+            textBox4.Text = null;
+
+            try
+            {
+                x = Convert.ToInt32(textBox1.Text);
+                originText = textBox2.Text;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             p = PoiskP();
 
@@ -204,57 +220,60 @@ namespace Laba4CryptV2
             }
 
             y = VozvVStep(g, x, p);
-            
+
 
             Console.WriteLine("p = " + p);
             Console.WriteLine("g = " + g);
             Console.WriteLine("y = " + y);
 
             if (originText.Length > 0)
+            {
+                char[] temp = new char[originText.Length - 1];
+                temp = originText.ToCharArray();
+
+                for (int i = 0; i <= originText.Length - 1; i++)
                 {
-                    char[] temp = new char[originText.Length - 1];
-                    temp = originText.ToCharArray();
-
-                    for (int i = 0; i <= originText.Length - 1; i++)
+                    int m = (int)temp[i];
+                    if (m > 0)
                     {
-                        int m = (int)temp[i];
-                        if (m > 0)
-                        {
-                            k = rand.Next() % (p - 2) + 1;
-                        
-                            Console.WriteLine((i + 1) + " пара k = " + k);
-                            a = VozvVStep(g, k, p);
-                            b = Ymnoz(VozvVStep(y, k, p), m, p);
-                            cryptedText = cryptedText + a + ' ' + b + ' ';
-                        }
+                        k = rand.Next() % (p - 2) + 1;
 
+                        Console.WriteLine((i + 1) + " пара k = " + k);
+                        a = VozvVStep(g, k, p);
+                        b = Ymnoz(VozvVStep(y, k, p), m, p);
+                        cryptedText = cryptedText + a + ' ' + b + ' ';
                     }
-                    textBox3.Text = cryptedText;
-                }
-
-                string[] strA = cryptedText.Split(' ');
-
-                if (strA.Length > 0)
-                {
-
-                    for (int i = 0; i < strA.Length - 1; i += 2)
-                    {
-                        a = Convert.ToInt32(strA[i]);
-                        b = Convert.ToInt32(strA[i + 1]);
-
-                        if ((a != 0) && (b != 0))
-                        {
-                            
-                            multi(VozvVStep(a, x, p), p);
-                            int dec = Ymnoz(b, multInv, p);
-                            char m = (char)dec;
-                            decryptedText = decryptedText + m;
-
-                        }
-                    }
-                    textBox4.Text = decryptedText;
 
                 }
+                textBox3.Text = cryptedText;
+            }
+
+            string[] strA = cryptedText.Split(' ');
+
+            if (strA.Length > 0)
+            {
+
+                //for (int i = 0; i < strA.Length - 1; i += 2)
+                for (int i = 0; i < strA.Length - 1;)
+                {
+
+                    a = Convert.ToInt32(strA[i]);
+                    b = Convert.ToInt32(strA[i + 1]);
+
+                    if ((a != 0) && (b != 0))
+                    {
+
+                        multi(VozvVStep(a, x, p), p);
+                        int dec = Ymnoz(b, multInv, p);
+                        char m = (char)dec;
+                        decryptedText = decryptedText + m;
+
+                    }
+                }
+                textBox4.Text = decryptedText;
+
+            }
+
 
         }
     }
