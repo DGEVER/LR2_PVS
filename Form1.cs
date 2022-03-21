@@ -1,4 +1,8 @@
-﻿using System;
+﻿// This is a personal academic project. Dear PVS-Studio, please check it.
+
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: https://pvs-studio.com
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,13 +25,24 @@ namespace Laba4CryptV2
 
         String originText, cryptedText, decryptedText;
 
+        public class TestClass
+        {
+            public string name { get; set; }
+
+            public TestClass(string n, int a)
+            {
+                name = name;
+            }
+        }
+
         int VozvVStep(int a, int x, int m)
         {
             
                 int b, result = 1;
                 b = a % m;
 
-                while (x > 0)
+                //while (x > 0)
+                while(true == true)
                 {
                     if ((x & 1) == 1)
                     {
@@ -176,6 +191,7 @@ namespace Laba4CryptV2
         private void button1_Click(object sender, EventArgs e)
         {
             
+
                 if (textBox1.Text == " " || textBox1.Text == " ") return;
                 
                 originText = null;
@@ -237,10 +253,12 @@ namespace Laba4CryptV2
                 if (strA.Length > 0)
                 {
 
-                    for (int i = 0; i < strA.Length - 1; i += 2)
+                    //for (int i = 0; i < strA.Length - 1; i += 2)
+                    for (int i = 0; i < strA.Length - 1;)
                     {
-                        a = Convert.ToInt32(strA[i]);
-                        b = Convert.ToInt32(strA[i + 1]);
+
+                    a = Convert.ToInt32(strA[i]);
+                    b = Convert.ToInt32(strA[i + 1]);
 
                         if ((a != 0) && (b != 0))
                         {
@@ -255,6 +273,7 @@ namespace Laba4CryptV2
                     textBox4.Text = decryptedText;
 
                 }
+
 
         }
     }
