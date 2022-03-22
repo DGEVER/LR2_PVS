@@ -191,7 +191,7 @@ namespace Laba4CryptV2
         {
 
 
-            if (textBox1.Text == " " || textBox1.Text == " ") return;
+            if (textBox1.Text == " " || textBox2.Text == " ") return;
 
             originText = null;
             cryptedText = null;
