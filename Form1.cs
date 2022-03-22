@@ -41,8 +41,7 @@ namespace Laba4CryptV2
             int b, result = 1;
             b = a % m;
 
-            //while (x > 0)
-            while (true == true)
+            while (x > 0)
             {
                 if ((x & 1) == 1)
                 {
