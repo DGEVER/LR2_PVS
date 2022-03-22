@@ -247,6 +247,7 @@ namespace Laba4CryptV2
                 textBox3.Text = cryptedText;
             }
 
+            if (cryptedText == null) return;
             string[] strA = cryptedText.Split(' ');
 
             if (strA.Length > 0)
