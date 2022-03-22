@@ -29,7 +29,7 @@ namespace Laba4CryptV2
         {
             public string name { get; set; }
 
-            public TestClass(string n, int a)
+            public TestClass(string n)
             {
                 name = n;
             }
